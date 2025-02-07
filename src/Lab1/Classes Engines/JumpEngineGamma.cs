@@ -1,0 +1,45 @@
+using System;
+namespace Itmo.ObjectOrientedProgramming.Lab1;
+
+public class JumpEngineGamma : JumpEngineA, IJumpEngine
+{
+    public JumpEngineGamma(int inputlengthOfJump)
+    {
+        JumpEngineValueObjects.CatchMistakesOfLength(inputlengthOfJump);
+        JumpEngineValueObject?.SetLength(inputlengthOfJump);
+        ShipValueObject = new ShipValueObjects();
+        JumpEngineValueObject = new JumpEngineValueObjects();
+    }
+
+    public ShipValueObjects ShipValueObject { get; }
+    public JumpEngineValueObjects JumpEngineValueObject { get; }
+
+    public void JumpOfJumpEngine(bool value)
+    {
+        var fuelCollector = new FuelCollectorClass();
+        if (value)
+        {
+            ShipValueObject.FuelIncreaser(fuelCollector.EngineJumpGammaFlow);
+        }
+        else
+        {
+            ShipValueObject.LostInVoid();
+        }
+    }
+
+    public override bool CanJump(int lengthOfJump)
+    {
+        if (lengthOfJump < 0)
+        {
+            throw new InvalidOperationException("Length Can not be -Value");
+        }
+        else if (lengthOfJump > 3)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+}
