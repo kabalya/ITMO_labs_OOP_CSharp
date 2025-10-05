@@ -10,8 +10,8 @@
 ## Используемые Технологии
 
 *   C#
-*   [.NET Framework/.NET]
-*   [JetBrains Rider, Xunit, Moq]
+*   .NET Framework/.NET
+*   JetBrains Rider, Xunit, Moq
   
 ## Автор
 
